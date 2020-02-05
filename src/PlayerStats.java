@@ -12,7 +12,7 @@ public class PlayerStats {
         readPlayers(names, scores, filename);
         printPlayers(names, scores);
         System.out.println("\nAverage high score of all players: " + calculateAverage(scores));
-
+        sortByScore(names, scores);
 
     }
 
@@ -44,6 +44,21 @@ public class PlayerStats {
         double avg = (double) sum / scores.length;
         return avg;
     }
+    public static void sortByScore(String names[], int scores[]) {
+        for (int i = 0; i < names.length; i++) {
+            for (int j = i + 1; j < names.length; j++) {
+                if (scores[i] < scores[j]) {
+                    String temp = names[i];
+                    names[i] = names[j];
+                    names[j] = temp;
+                    int t = scores[i];
+                    scores[i] = scores[j];
+                    scores[j] = t;
+                }
+            }
+        }
+    }
+
 
 
 }
