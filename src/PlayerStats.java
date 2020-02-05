@@ -11,6 +11,7 @@ public class PlayerStats {
         String filename = "playerData2.txt";
         readPlayers(names, scores, filename);
         printPlayers(names, scores);
+        System.out.println("\nAverage high score of all players: " + calculateAverage(scores));
 
 
     }
@@ -35,5 +36,14 @@ public class PlayerStats {
             System.out.println(String.format("%-15s %10d", names[i], scores[i]));
         }
     }
+    public static double calculateAverage(int scores[]) {
+        int sum = 0;
+        for (int i = 0; i < scores.length; i++) {
+            sum += scores[i];
+        }
+        double avg = (double) sum / scores.length;
+        return avg;
+    }
+
 
 }
