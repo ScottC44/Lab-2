@@ -13,6 +13,9 @@ public class PlayerStats {
         printPlayers(names, scores);
         System.out.println("\nAverage high score of all players: " + calculateAverage(scores));
         sortByScore(names, scores);
+        int topX = 10;
+        topXPlayers(names, scores, topX);
+
 
     }
 
@@ -58,7 +61,17 @@ public class PlayerStats {
             }
         }
     }
-
-
-
+    public static void topXPlayers(String names[], int scores[], int topX) {
+        System.out.println("\nTop " + topX + " Players: ");
+        System.out.println("---------------------------");
+        System.out.printf("%-15s %10s\n", "Player Name", "High Score");
+        for (int i = 0; i < 10; i++) {
+            System.out.println(String.format("%-15s %10d", names[i], scores[i]));
+        }
+    }
 }
+
+
+
+
+
