@@ -10,6 +10,8 @@ public class PlayerStats {
 
         String filename = "playerData2.txt";
         readPlayers(names, scores, filename);
+        printPlayers(names, scores);
+
 
     }
 
@@ -25,6 +27,12 @@ public class PlayerStats {
             fileIn.close();
         } catch (FileNotFoundException e) {
             System.out.println("Unable to open " + fileName);
+        }
+    }
+    public static void printPlayers(String names[], int scores[]) {
+        System.out.printf("%-15s %10s\n", "Player Name", "High Score");
+        for (int i = 0; i < names.length; i++) {
+            System.out.println(String.format("%-15s %10d", names[i], scores[i]));
         }
     }
 
